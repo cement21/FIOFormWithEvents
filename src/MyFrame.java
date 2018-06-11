@@ -11,7 +11,7 @@ public class MyFrame extends JFrame{
     private int value = 0;
 
     public MyFrame() {
-        setContentPane(shortForm.getRootPanel());
+        setContentPane(fullForm.getRootPanel());
         setSize(800, 600);
         setMinimumSize(new Dimension(800, 600));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -69,7 +69,6 @@ public class MyFrame extends JFrame{
                     value = shortForm.countWordInTextField() * 33;
                     shortForm.setProgressBarValue(value);
                 }
-                //shortForm.setProgressBarValue(shortForm.getTextFieldFIO().getText().length());
             }
         });
     }

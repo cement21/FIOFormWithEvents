@@ -11,7 +11,7 @@ public abstract class Form {
     public abstract JButton getButtonOk();
 
     public void getPersonFromCurrentFormAndSendTo(Form form){
-        form.getPerson().clearPerson();
+        getPerson().clearPerson();
         setPersonFromTextField();
         form.setPerson(getPerson());
         form.fillFormFields();

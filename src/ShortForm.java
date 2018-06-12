@@ -11,6 +11,8 @@ public class ShortForm extends Form{
     private JButton buttonOk;
     private JProgressBar progressBar;
     private Person person = new Person();
+    final int BIG_STEP_OF_PROGRESS_BAR = 33;
+    final int SMALL_STEP_OF_PROGRESS_BAR = 5;
 
     public JPanel getRootPanel() {
         return rootPanel;
@@ -77,5 +79,14 @@ public class ShortForm extends Form{
         return splitTextField(getTextFieldFIO().getText()).length;
     }
 
+    public void changeProgressBarValue (KeyEvent e){
+        if(e.getKeyCode() == KeyEvent.VK_DELETE || e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
+            setProgressBarValue(getProgressBarValue() - SMALL_STEP_OF_PROGRESS_BAR);
+        } else if (e.getKeyChar() != ' ' && e.getKeyCode() != KeyEvent.VK_DELETE){
+            setProgressBarValue(getProgressBarValue() + SMALL_STEP_OF_PROGRESS_BAR);
+        } else if (e.getKeyChar() == ' '){
+            setProgressBarValue(countWordInTextField() * BIG_STEP_OF_PROGRESS_BAR);
+        }
+    }
 
 }

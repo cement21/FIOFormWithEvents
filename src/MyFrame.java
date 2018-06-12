@@ -58,17 +58,7 @@ public class MyFrame extends JFrame{
             @Override
             public void keyPressed (KeyEvent e) {
                 super.keyPressed(e);
-                if(e.getKeyCode() == KeyEvent.VK_DELETE || e.getKeyCode() == KeyEvent.VK_BACK_SPACE){
-                    value -= 5;
-                    shortForm.setProgressBarValue(value);
-
-                }else if (e.getKeyChar() != ' ' && e.getKeyCode() != KeyEvent.VK_DELETE){
-                    value += 5;
-                    shortForm.setProgressBarValue(value);
-                } else if (e.getKeyChar() == ' '){
-                    value = shortForm.countWordInTextField() * 33;
-                    shortForm.setProgressBarValue(value);
-                }
+                shortForm.changeProgressBarValue(e);
             }
         });
     }
